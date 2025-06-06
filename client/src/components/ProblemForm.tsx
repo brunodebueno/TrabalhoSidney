@@ -45,8 +45,8 @@ export default function ProblemForm({
   const removeConstraint = (id: string) => {
     if (constraints.length <= 1) {
       toast({
-        title: "Cannot remove constraint",
-        description: "At least one constraint is required.",
+        title: "Não é possível remover restrição",
+        description: "Pelo menos uma restrição é obrigatória.",
         variant: "destructive"
       });
       return;
@@ -64,8 +64,8 @@ export default function ProblemForm({
     // Check objective function
     if (isNaN(objective.c1) || isNaN(objective.c2)) {
       toast({
-        title: "Invalid objective function",
-        description: "Please enter valid numbers for the objective function coefficients.",
+        title: "Função objetivo inválida",
+        description: "Por favor, insira números válidos para os coeficientes da função objetivo.",
         variant: "destructive"
       });
       return false;
@@ -75,8 +75,8 @@ export default function ProblemForm({
     for (const constraint of constraints) {
       if (isNaN(constraint.a1) || isNaN(constraint.a2) || isNaN(constraint.rhs)) {
         toast({
-          title: "Invalid constraint",
-          description: `Please enter valid numbers for all constraint coefficients and right-hand side values.`,
+          title: "Restrição inválida",
+          description: `Por favor, insira números válidos para todos os coeficientes das restrições e valores do lado direito.`,
           variant: "destructive"
         });
         return false;
@@ -86,8 +86,8 @@ export default function ProblemForm({
     // Check variable names
     if (!variables.x1.name.trim() || !variables.x2.name.trim()) {
       toast({
-        title: "Invalid variable names",
-        description: "Please provide names for both variables.",
+        title: "Nomes de variáveis inválidos",
+        description: "Por favor, forneça nomes para ambas as variáveis.",
         variant: "destructive"
       });
       return false;
@@ -108,21 +108,21 @@ export default function ProblemForm({
       
       if (result.feasible) {
         toast({
-          title: "Solution found!",
-          description: "The optimal solution has been calculated successfully.",
+          title: "Solução encontrada!",
+          description: "A solução ótima foi calculada com sucesso.",
         });
       } else {
         toast({
-          title: "No feasible solution",
-          description: "The problem has no feasible solution with the given constraints.",
+          title: "Nenhuma solução viável",
+          description: "O problema não possui solução viável com as restrições fornecidas.",
           variant: "destructive"
         });
       }
     } catch (error) {
       console.error("Calculation error:", error);
       toast({
-        title: "Calculation error",
-        description: "An error occurred while solving the problem. Please check your inputs.",
+        title: "Erro de cálculo",
+        description: "Ocorreu um erro ao resolver o problema. Por favor, verifique suas entradas.",
         variant: "destructive"
       });
     } finally {
@@ -211,7 +211,7 @@ export default function ProblemForm({
               <div key={constraint.id} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-sm font-medium text-gray-700">
-                    Constraint {index + 1}
+                    Restrição {index + 1}
                   </span>
                   <Button
                     onClick={() => removeConstraint(constraint.id)}
@@ -272,7 +272,7 @@ export default function ProblemForm({
               className="bg-primary-custom hover:bg-primary-dark-custom font-medium shadow-md"
             >
               <Play className="h-5 w-5 mr-2" />
-              {isCalculating ? "Calculating..." : "Calculate Optimal Solution"}
+              {isCalculating ? "Calculando..." : "Calcular Solução Ótima"}
             </Button>
           </div>
         </CardContent>

@@ -18,8 +18,8 @@ export default function ResultDisplay({ solution, variables, constraints, object
           <CardContent className="pt-6">
             <div className="text-center text-gray-500">
               <Activity className="h-12 w-12 mx-auto mb-4 opacity-50" />
-              <p className="text-lg font-medium">No Solution Yet</p>
-              <p className="text-sm mt-2">Enter your problem data and click "Calculate" to see the optimal solution.</p>
+              <p className="text-lg font-medium">Nenhuma Solução Ainda</p>
+              <p className="text-sm mt-2">Insira os dados do seu problema e clique em "Calcular" para ver a solução ótima.</p>
             </div>
           </CardContent>
         </Card>

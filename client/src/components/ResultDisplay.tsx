@@ -34,8 +34,8 @@ export default function ResultDisplay({ solution, variables, constraints, object
           <CardContent className="pt-6">
             <div className="text-center text-destructive-custom">
               <CheckCircle className="h-12 w-12 mx-auto mb-4" />
-              <p className="text-lg font-medium">No Feasible Solution</p>
-              <p className="text-sm mt-2">The given constraints have no feasible solution. Please review your problem formulation.</p>
+              <p className="text-lg font-medium">Nenhuma Solução Viável</p>
+              <p className="text-sm mt-2">As restrições fornecidas não possuem solução viável. Por favor, revise a formulação do seu problema.</p>
             </div>
           </CardContent>
         </Card>
@@ -66,14 +66,14 @@ export default function ResultDisplay({ solution, variables, constraints, object
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <CheckCircle className="h-5 w-5 text-success-custom" />
-            <span>Optimal Solution</span>
+            <span>Solução Ótima</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
           {/* Results Summary */}
           <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
             <div className="text-center">
-              <h3 className="text-lg font-medium text-gray-800 mb-2">Maximum Profit</h3>
+              <h3 className="text-lg font-medium text-gray-800 mb-2">Lucro Máximo</h3>
               <div className="text-3xl font-bold text-success-custom font-roboto-mono">
                 {formatNumber(solution.result || 0)} centavos
               </div>
@@ -82,13 +82,13 @@ export default function ResultDisplay({ solution, variables, constraints, object
 
           {/* Variable Values */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-800 mb-3">Optimal Variable Values</h3>
+            <h3 className="text-lg font-medium text-gray-800 mb-3">Valores Ótimos das Variáveis</h3>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-sm text-gray-600">Variable x₁</span>
+                    <span className="text-sm text-gray-600">Variável x₁</span>
                     <p className="font-medium text-gray-800">{variables.x1.name}</p>
                   </div>
                   <div className="text-right">
@@ -103,7 +103,7 @@ export default function ResultDisplay({ solution, variables, constraints, object
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-sm text-gray-600">Variable x₂</span>
+                    <span className="text-sm text-gray-600">Variável x₂</span>
                     <p className="font-medium text-gray-800">{variables.x2.name}</p>
                   </div>
                   <div className="text-right">
@@ -119,7 +119,7 @@ export default function ResultDisplay({ solution, variables, constraints, object
 
           {/* Constraint Status */}
           <div className="mt-6">
-            <h3 className="text-lg font-medium text-gray-800 mb-3">Constraint Analysis</h3>
+            <h3 className="text-lg font-medium text-gray-800 mb-3">Análise das Restrições</h3>
             <div className="space-y-2">
               {constraints.map((constraint, index) => {
                 const value = getConstraintValue(constraint, x1Value, x2Value);
@@ -134,7 +134,7 @@ export default function ResultDisplay({ solution, variables, constraints, object
                     <div className="flex items-center space-x-2">
                       <span className="font-roboto-mono text-sm">{formatNumber(value)}</span>
                       <Badge variant={binding ? "destructive" : "secondary"}>
-                        {binding ? "Binding" : "Slack"}
+                        {binding ? "Ativa" : "Folga"}
                       </Badge>
                     </div>
                   </div>
@@ -150,26 +150,26 @@ export default function ResultDisplay({ solution, variables, constraints, object
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <TrendingUp className="h-5 w-5 text-primary-custom" />
-            <span>Calculation Steps</span>
+            <span>Passos do Cálculo</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
               <span className="flex-shrink-0 w-6 h-6 bg-primary-custom text-white rounded-full flex items-center justify-center text-sm font-medium">1</span>
-              <span className="text-sm text-gray-700">Problem formulation validated</span>
+              <span className="text-sm text-gray-700">Formulação do problema validada</span>
             </div>
             <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
               <span className="flex-shrink-0 w-6 h-6 bg-primary-custom text-white rounded-full flex items-center justify-center text-sm font-medium">2</span>
-              <span className="text-sm text-gray-700">Initial tableau constructed</span>
+              <span className="text-sm text-gray-700">Tableau inicial construído</span>
             </div>
             <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
               <span className="flex-shrink-0 w-6 h-6 bg-primary-custom text-white rounded-full flex items-center justify-center text-sm font-medium">3</span>
-              <span className="text-sm text-gray-700">Simplex iterations completed</span>
+              <span className="text-sm text-gray-700">Iterações do simplex concluídas</span>
             </div>
             <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg border border-green-200">
               <span className="flex-shrink-0 w-6 h-6 bg-success-custom text-white rounded-full flex items-center justify-center text-sm font-medium">4</span>
-              <span className="text-sm text-gray-700">Optimal solution found</span>
+              <span className="text-sm text-gray-700">Solução ótima encontrada</span>
             </div>
           </div>
         </CardContent>

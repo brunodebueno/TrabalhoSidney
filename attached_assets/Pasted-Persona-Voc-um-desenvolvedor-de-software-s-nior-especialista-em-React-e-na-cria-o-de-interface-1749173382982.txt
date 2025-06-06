@@ -1,0 +1,79 @@
+Persona: Você é um desenvolvedor de software sênior, especialista em React e na criação de interfaces de usuário interativas para aplicações matemáticas.
+
+Objetivo: Crie uma aplicação web completa usando React que funcione como uma calculadora para resolver problemas de programação linear pelo método simplex. A aplicação deve permitir que um usuário insira os dados de um problema (função objetivo e restrições) e veja a solução ótima calculada.
+
+Contexto do Problema (Use Case): A aplicação será usada para resolver um problema de otimização de produção de reveladores fotográficos.
+
+Variáveis: x 
+1
+​
+  (litros de revelador Fino) e x 
+2
+​
+  (litros de revelador Extrafino).
+Maximizar Lucro (Função Objetivo): Z=8x 
+1
+​
+ +10x 
+2
+​
+ 
+Restrições:
+2x 
+1
+​
+ +1x 
+2
+​
+ ≤50
+1x 
+1
+​
+ +2x 
+2
+​
+ ≤70
+Requisitos da Aplicação:
+
+Interface de Entrada:
+
+Crie um formulário intuitivo para o usuário inserir os dados do problema.
+Campos para os coeficientes da função objetivo (ex: 8 e 10).
+Uma área para adicionar dinamicamente as restrições, onde cada restrição terá campos para seus coeficientes (ex: 2, 1) e o valor do lado direito (ex: 50). O usuário deve poder adicionar ou remover restrições.
+Um botão "Calcular" para iniciar a resolução.
+Lógica de Resolução:
+
+Utilize uma biblioteca JavaScript para implementar o método simplex. Não é necessário implementar o algoritmo do zero. A biblioteca javascript-lp-solver é uma excelente escolha para esta tarefa.
+A lógica deve ser acionada pelo clique no botão "Calcular".
+Exibição dos Resultados:
+
+Após o cálculo, exiba a solução de forma clara em um card ou seção de resultados.
+Mostre os valores ótimos para cada variável (ex: "Produzir 10 litros de Fino (x 
+1
+​
+ )").
+Mostre o valor máximo da função objetivo (ex: "Lucro Máximo: 340 centavos").
+Se não houver solução viável, exiba uma mensagem apropriada.
+Tecnologias e Estrutura:
+
+Framework: React (use Vite para a configuração inicial do projeto: npm create vite@latest my-lp-solver -- --template react-ts).
+Linguagem: TypeScript, para maior robustez.
+Biblioteca de Resolução: javascript-lp-solver.
+Estilização: Use uma biblioteca de componentes como Material-UI (MUI) ou Chakra UI para criar uma interface limpa e profissional rapidamente.
+Estrutura de Componentes: Organize o código em componentes reutilizáveis:
+App.tsx: Componente principal que gerencia o estado geral.
+ProblemForm.tsx: Componente para o formulário de entrada de dados.
+ResultDisplay.tsx: Componente para exibir a solução.
+Entregável: Forneça o código completo e funcional para o arquivo App.tsx e seus componentes filhos (ProblemForm.tsx, ResultDisplay.tsx), incluindo as instruções de instalação das dependências (npm install javascript-lp-solver @mui/material @emotion/react @emotion/styled).
+
+## Bibliotecas Sugeridas e Por quê
+React: É um requisito da questão (c). É a biblioteca mais popular para criar interfaces de usuário modernas e interativas, ideal para uma aplicação dinâmica como esta.
+
+Vite: É uma ferramenta de build moderna que oferece um ambiente de desenvolvimento extremamente rápido. Para iniciar um projeto React com Vite, o processo é mais ágil do que o tradicional create-react-app.
+
+javascript-lp-solver: Esta é a biblioteca central para a lógica do seu programa.
+
+Por quê? Implementar o algoritmo simplex do zero é complexo e propenso a erros. Esta biblioteca já contém uma implementação robusta e testada. Ela simplifica o problema a ponto de você apenas precisar formatar os dados de entrada em um JSON, passar para a biblioteca e ler o JSON de saída com a resposta.
+Material-UI (MUI) ou Chakra UI: Bibliotecas de componentes de UI.
+
+Por quê? Em vez de escrever CSS do zero para criar formulários, botões e cards, você pode usar componentes pré-fabricados e estilizados. Isso acelera drasticamente o desenvolvimento, garante um design consistente e melhora a experiência do usuário. Para este projeto, MUI é uma ótima escolha por sua vasta gama de componentes.

@@ -143,24 +143,28 @@ export default function ProblemForm({
         <CardContent className="space-y-4">
           <div className="bg-blue-50 p-4 rounded-lg">
             <p className="text-sm text-gray-600 mb-2">Maximizar:</p>
-            <div className="flex items-center space-x-2 font-roboto-mono text-lg">
+            <div className="flex flex-wrap items-center gap-2 font-roboto-mono text-base sm:text-lg">
               <span>Z = </span>
-              <Input
-                type="number"
-                value={objective.c1}
-                onChange={(e) => setObjective({ ...objective, c1: parseFloat(e.target.value) || 0 })}
-                className="w-16 text-center"
-                placeholder="8"
-              />
-              <span>x₁ + </span>
-              <Input
-                type="number"
-                value={objective.c2}
-                onChange={(e) => setObjective({ ...objective, c2: parseFloat(e.target.value) || 0 })}
-                className="w-16 text-center"
-                placeholder="10"
-              />
-              <span>x₂</span>
+              <div className="flex items-center gap-1">
+                <Input
+                  type="number"
+                  value={objective.c1}
+                  onChange={(e) => setObjective({ ...objective, c1: parseFloat(e.target.value) || 0 })}
+                  className="w-14 sm:w-16 text-center text-sm"
+                  placeholder="8"
+                />
+                <span>x₁ +</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Input
+                  type="number"
+                  value={objective.c2}
+                  onChange={(e) => setObjective({ ...objective, c2: parseFloat(e.target.value) || 0 })}
+                  className="w-14 sm:w-16 text-center text-sm"
+                  placeholder="10"
+                />
+                <span>x₂</span>
+              </div>
             </div>
           </div>
           
@@ -192,7 +196,7 @@ export default function ProblemForm({
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center space-x-2">
-              <span className="material-icons text-primary-custom">rule</span>
+              <span className="text-primary-custom">📏</span>
               <span>Restrições</span>
             </CardTitle>
             <Button
@@ -201,7 +205,7 @@ export default function ProblemForm({
               className="bg-primary-custom hover:bg-primary-dark-custom"
             >
               <Plus className="h-4 w-4 mr-1" />
-              Adicionar Restrição
+              Adicionar
             </Button>
           </div>
         </CardHeader>
@@ -222,28 +226,32 @@ export default function ProblemForm({
                     <Trash2 className="h-4 w-4" />
                   </Button>
                 </div>
-                <div className="flex items-center space-x-2 font-roboto-mono">
-                  <Input
-                    type="number"
-                    value={constraint.a1}
-                    onChange={(e) => updateConstraint(constraint.id, 'a1', parseFloat(e.target.value) || 0)}
-                    className="w-16 text-center"
-                    placeholder="2"
-                  />
-                  <span>x₁ + </span>
-                  <Input
-                    type="number"
-                    value={constraint.a2}
-                    onChange={(e) => updateConstraint(constraint.id, 'a2', parseFloat(e.target.value) || 0)}
-                    className="w-16 text-center"
-                    placeholder="1"
-                  />
-                  <span>x₂</span>
+                <div className="flex flex-wrap items-center gap-1 text-sm font-roboto-mono">
+                  <div className="flex items-center gap-1">
+                    <Input
+                      type="number"
+                      value={constraint.a1}
+                      onChange={(e) => updateConstraint(constraint.id, 'a1', parseFloat(e.target.value) || 0)}
+                      className="w-12 h-8 text-center text-xs"
+                      placeholder="2"
+                    />
+                    <span className="text-xs">x₁ +</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Input
+                      type="number"
+                      value={constraint.a2}
+                      onChange={(e) => updateConstraint(constraint.id, 'a2', parseFloat(e.target.value) || 0)}
+                      className="w-12 h-8 text-center text-xs"
+                      placeholder="1"
+                    />
+                    <span className="text-xs">x₂</span>
+                  </div>
                   <Select
                     value={constraint.operator}
                     onValueChange={(value) => updateConstraint(constraint.id, 'operator', value)}
                   >
-                    <SelectTrigger className="w-16">
+                    <SelectTrigger className="w-12 h-8">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -256,7 +264,7 @@ export default function ProblemForm({
                     type="number"
                     value={constraint.rhs}
                     onChange={(e) => updateConstraint(constraint.id, 'rhs', parseFloat(e.target.value) || 0)}
-                    className="w-20 text-center"
+                    className="w-16 h-8 text-center text-xs"
                     placeholder="50"
                   />
                 </div>

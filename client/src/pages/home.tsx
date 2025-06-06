@@ -54,9 +54,9 @@ export default function Home() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center space-x-3">
             <Calculator className="h-8 w-8" />
-            <h1 className="text-2xl font-medium">Linear Programming Simplex Calculator</h1>
+            <h1 className="text-2xl font-medium">Calculadora de Programação Linear - Método Simplex</h1>
           </div>
-          <p className="text-blue-100 mt-2">Optimize your linear programming problems with the simplex method</p>
+          <p className="text-blue-100 mt-2">Otimize seus problemas de programação linear com o método simplex</p>
         </div>
       </header>
 
@@ -88,8 +88,8 @@ export default function Home() {
       <footer className="bg-gray-100 mt-12">
         <div className="container mx-auto px-6 py-6">
           <div className="text-center text-gray-600 text-sm">
-            <p>Linear Programming Simplex Calculator • Built with React & Tailwind CSS</p>
-            <p className="mt-1">Powered by javascript-lp-solver library</p>
+            <p>Calculadora de Programação Linear - Método Simplex • Desenvolvida com React & Tailwind CSS</p>
+            <p className="mt-1">Baseada na biblioteca javascript-lp-solver</p>
           </div>
         </div>
       </footer>

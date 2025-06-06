@@ -137,12 +137,12 @@ export default function ProblemForm({
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <Target className="h-5 w-5 text-primary-custom" />
-            <span>Objective Function</span>
+            <span>Função Objetivo</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="bg-blue-50 p-4 rounded-lg">
-            <p className="text-sm text-gray-600 mb-2">Maximize:</p>
+            <p className="text-sm text-gray-600 mb-2">Maximizar:</p>
             <div className="flex items-center space-x-2 font-roboto-mono text-lg">
               <span>Z = </span>
               <Input
@@ -166,7 +166,7 @@ export default function ProblemForm({
           
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="var1-name">Variable 1 Name</Label>
+              <Label htmlFor="var1-name">Nome da Variável 1</Label>
               <Input
                 id="var1-name"
                 value={variables.x1.name}
@@ -175,7 +175,7 @@ export default function ProblemForm({
               />
             </div>
             <div>
-              <Label htmlFor="var2-name">Variable 2 Name</Label>
+              <Label htmlFor="var2-name">Nome da Variável 2</Label>
               <Input
                 id="var2-name"
                 value={variables.x2.name}
@@ -193,7 +193,7 @@ export default function ProblemForm({
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center space-x-2">
               <span className="material-icons text-primary-custom">rule</span>
-              <span>Constraints</span>
+              <span>Restrições</span>
             </CardTitle>
             <Button
               onClick={addConstraint}
@@ -201,7 +201,7 @@ export default function ProblemForm({
               className="bg-primary-custom hover:bg-primary-dark-custom"
             >
               <Plus className="h-4 w-4 mr-1" />
-              Add Constraint
+              Adicionar Restrição
             </Button>
           </div>
         </CardHeader>
